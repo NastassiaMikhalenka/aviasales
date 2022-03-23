@@ -1,43 +1,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;1,300&family=Work+Sans:ital,wght@0,100;0,300;1,100&display=swap');
 
 
-*{
-  margin: 0;
-  box-sizing: border-box;
-  /*background-color: #eff1f4;*/
+* {
+    margin: 0;
+    box-sizing: border-box;
+    /*background-color: #eff1f4;*/
 }
 
-.App{
-  background-color: #eff1f4;
+.App {
+    background-color: #eff1f4;
 }
 
-.mainContainerHeader{
-  height: 70px;
-  display: flex;
-  margin: auto;
-}
-.mainContainer{
-  display: flex;
-  width: 70%;
-  margin: auto;
-}
-.mainContainerFilters{
-  width: 30%;
-  margin-right: 10px;
-}
-.mainContainerContent{
-  width: 100%;
+.mainContainerHeader {
+    height: 70px;
+    display: flex;
+    margin: auto;
 }
 
-.containerHeader_Logo{
-  display: flex;
-  text-align: center;
-  align-items: center;
-  width: 100%;
-  justify-content: center;
+.mainContainer {
+    display: flex;
+    width: 70%;
+    margin: auto;
 }
 
-/*.App {*/
-/*  text-align: center;*/
-/*}*/
+.mainContainerFilters {
+    width: 30%;
+    margin-right: 10px;
+}
 
+.mainContainerContent {
+    width: 100%;
+}
+
+.containerHeader_Logo {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    width: 70%;
+    margin: auto;
+    justify-content: start;
+}
+
+@media (max-width: 670px) {
+    .mainContainer {
+        width: 90%;
+        flex-direction: column;
+    }
+
+    .mainContainerFilters {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}

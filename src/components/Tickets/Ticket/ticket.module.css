@@ -47,9 +47,8 @@
 }
 
 .ticket_PriceButton:hover {
-    opacity: .8;
+    background-color: #c94a16;
 }
-
 
 .ticket_Price {
     margin: 0;
@@ -100,4 +99,15 @@
     font-size: 16px;
     line-height: 21px;
     color: #4a4a4a;
+}
+
+
+@media (max-width: 670px) {
+    .ticket_Container {
+        flex-direction: column-reverse;
+    }
+
+    .ticket_priceAndImg {
+        width: 100%;
+    }
 }
