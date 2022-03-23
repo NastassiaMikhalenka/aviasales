@@ -1,0 +1,35 @@
+.mainContainer_Sorting {
+    width: 100%;
+    display: flex;
+}
+
+.sorting_ButtonCheap,
+.sorting_ButtonFastest {
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: white;
+    padding: 20px;
+    cursor: pointer;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+.sorting_ButtonCheap:hover,
+.sorting_ButtonFastest:hover {
+    background-color: #0c73fe;
+    color: white;
+}
+
+.isActive {
+    background-color: #0c73fe;
+    color: white;
+}
+
+.sorting_ButtonCheap {
+    border-radius: 20px 0 0 20px;
+}
+
+.sorting_ButtonFastest {
+    border-radius: 0 20px 20px 0;
+}

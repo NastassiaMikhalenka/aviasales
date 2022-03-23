@@ -1,0 +1,16 @@
+.tickets_buttonShowMore {
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: white;
+    padding: 20px;
+    cursor: pointer;
+    font-size: 17px;
+    text-transform: uppercase;
+    border-radius: 20px;
+}
+
+.tickets_buttonShowMore:hover {
+    background-color: #0c73fe;
+    color: white;
+}
