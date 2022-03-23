@@ -148,8 +148,8 @@ export const setTicketsTC = () => (dispatch: Dispatch) => {
             axios.get(`https://front-test.beta.aviasales.ru/tickets?searchId=${key}`)
                 .then(response => {
                     dispatch(setTickets(response.data.tickets))
-                    console.log(response.data.tickets)
-                    console.log("Все билеты")
+                    // console.log(response.data.tickets)
+                    // console.log("Все билеты")
                 })
                 .catch((error) => {
                     console.log("error")

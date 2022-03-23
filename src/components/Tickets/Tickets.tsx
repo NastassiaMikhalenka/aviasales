@@ -9,7 +9,6 @@ import classes from "./tickets.module.css";
 export const Tickets = React.memo(() => {
     const store = useSelector((state: rootReducerType) => state.tickets)
     const dispatch = useDispatch()
-    console.log("Часть билетов")
     return (
         <>
             <div>

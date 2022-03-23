@@ -1,17 +1,17 @@
 import React from "react";
 import {SegmentsType, TicketType} from "../../../state/bll/tickets_reducer";
 import classes from "./ticket.module.css";
+import {v1} from "uuid";
 
 
 type propsType = {
     ticket: TicketType
-    key: number
 }
 
-export const Ticket = ({ticket, key}: propsType) => {
+export const Ticket = ({ticket}: propsType) => {
 
     return (
-        <div key={key} className={classes.card_Container}>
+        <div className={classes.card_Container}>
             <div className={classes.ticket_Container}>
                 <div className={classes.ticket_priceAndImg}>
                     <h2 className={classes.ticket_Price}>{ticket.price} ₽</h2>
@@ -27,19 +27,16 @@ export const Ticket = ({ticket, key}: propsType) => {
                                 const getTime = (time: number) => {
                                     let minutes = time % 60;
                                     let hours = (time - minutes) / 60;
-                                    // if (minutes < 10) minutes = minutes;
-                                    // if (hours < 10) hours = hours;
                                     return `${hours}ч ${minutes}м`
                                 }
                                 const getTimeFlight = (date: string, time: number) => {
                                     const startDate = new Date(date);
-                                    // console.log(startDate)
                                     const endDate = new Date(+startDate + time * 60 * 1000);
                                     return `${startDate.getHours()}:${startDate.getMinutes()} - ${endDate.getHours()}:${endDate.getMinutes()}`;
                                 }
                                 // 2022-01-30T01:11:00.000Z
                                 return (
-                                    <div key={i} className={classes.ticket_SegmentsListContainer}>
+                                    <div key={v1()} className={classes.ticket_SegmentsListContainer}>
                                         <div className={classes.ticketContent}>
                                             <p
                                                 className={classes.ticketSegment_RecordTitle}>{segment.origin} - {segment.destination} </p>
@@ -59,7 +56,6 @@ export const Ticket = ({ticket, key}: propsType) => {
                             }
                         )
                     }
-
                     </div>
                 </div>
             </div>
@@ -75,18 +71,18 @@ type SegmentStopsPropsType = {
 const SegmentStops = (props: SegmentStopsPropsType) => {
     if (props.segment.stops.length === 0) {
         return (
-            <div key={props.segment.duration}>
+            <div>
                 <div className={classes.ticketSegment_RecordTitle}>БЕЗ ПЕРЕСАДОК</div>
                 <div className={classes.ticketSegment_RecordValue}> -</div>
             </div>
         )
     } else if (props.segment.stops.length === 1) {
         return (
-            <div key={props.segment.duration}>
+            <div>
                 <div className={classes.ticketSegment_RecordTitle}>1 ПЕРЕСАДКА</div>
                 <div className={classes.ticketSegment_RecordValue}>{props.segment.stops.map(m => {
                     return (
-                        <div className={classes.ticketSegmentContainer}>
+                        <div className={classes.ticketSegmentContainer} key={v1()}>
                         <span>{m} </span>
                         </div>
                     )
@@ -95,22 +91,22 @@ const SegmentStops = (props: SegmentStopsPropsType) => {
         )
     } else if (props.segment.stops.length === 2) {
         return (
-            <div key={props.segment.duration}>
+            <div>
                 <div className={classes.ticketSegment_RecordTitle}>2 ПЕРЕСАДКИ</div>
                 <div className={classes.ticketSegment_RecordValue}>{props.segment.stops.map(m => {
                     return (
-                        <span>{m} </span>
+                        <span key={v1()}>{m} </span>
                     )
                 })}</div>
             </div>
         )
     } else if (props.segment.stops.length === 3) {
         return (
-            <div key={props.segment.duration}>
+            <div>
                 <div className={classes.ticketSegment_RecordTitle}>3 ПЕРЕСАДКИ</div>
                 <div className={classes.ticketSegment_RecordValue}>{props.segment.stops.map(m => {
                     return (
-                        <span>{m} </span>
+                        <span key={v1()}>{m} </span>
                     )
                 })}</div>
             </div>
