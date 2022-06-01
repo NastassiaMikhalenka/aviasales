@@ -1,6 +1,7 @@
 import {Dispatch} from "redux";
 import axios from "axios";
 import {ticketsAPI} from "../dal/api";
+import {data} from "../dal/data";
 
 export type SegmentsType = {
     origin: string
@@ -86,7 +87,7 @@ export const tickets_reducer = (state: InitialStateType = initialState, action: 
                 newState.ticketsForFilter = newState.tickets;
                 action.payload.filters.map((item) => {
                     newState.ticketsForFilter = newState.ticketsForFilter.filter((ticket) =>
-                            ticket.segments[0].stops.length === +item
+                        ticket.segments[0].stops.length === +item
                     );
                     return item;
                 });
@@ -152,7 +153,11 @@ export const setTicketsTC = () => (dispatch: Dispatch) => {
                     // console.log("Все билеты")
                 })
                 .catch((error) => {
-                    console.log("error")
+                    console.log('Ошибка на сервере, были загружены данные из базы')
+                    dispatch(setTickets(data.items))
                 })
-        })
+        }).catch(() => {
+        console.log('Ошибка на сервере, были загружены данные из базы')
+        dispatch(setTickets(data.items))
+    })
 }
